@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang='es'>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Prueba 1</title>
+</head>
+
+<body>
+    <h1>Funciones en JS</h1>
+    <p>Abre la consola para comprobar el funcionamiento del script</p>
+    <script>
+        //Ejemplos de funciones en JS
+        //Funcion declarativa
+        function suma(num1, num2 = 2) {
+            return num1 + num2;
+        }
+
+        function saluda() {
+            console.log("Hola");
+        }
+
+        function usaAnonima(funcion){
+            funcion("Juan");
+        }
+        
+        //Funcion anonima
+        let mensaje = function(nombre){
+            console.log("Hola" + nombre);
+        }
+        //Funciones de flecha
+        let resta = function(num1, num2){
+            return num1 - num2;
+        }
+        let restaFlecha = (num1, num2) => num1 - num2;
+        
+        //Llamada a la funcion
+        console.log(suma(2, 3));
+        saluda();
+        saluda();
+        console.log(suma(2));
+        mensaje();
+        usaAnonima(mensaje);
+
+        
+        console.log(resta(2, 3));
+        console.log(restaFlecha(2, 3));
+    </script>
+    <script>
+        //En qué consiste el hoisting
+        //Hoisting es una técnica de desarrollo que permite que las variables y funciones sean declaradas antes de su uso.
+        //Ejemplo de hoisting
+        console.log(numero);
+        var numero = 2;
+        console.log(numero);
+        
+    </script>
+</body>
+
+</html>

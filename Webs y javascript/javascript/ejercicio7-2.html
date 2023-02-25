@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio</title>
+    <style>
+        table,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        td{
+            min-width: 30px;
+            height: 30px;
+            text-align: center;
+        }
+        .resaltado{
+            background-color: #ff0000;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Tablita</h1>
+    <div id="principal">
+        Aquí se creará la tabla
+    </div>
+
+    <script>
+        //Petición de filas y columnas
+        let filas = parseInt(prompt("Dime el número de filas que quieres"));
+        let columnas = parseInt(prompt("Dime el número de columnas que quieres"));
+
+        //Creación de la tabla y sus elementos
+        let tabla = document.createElement('table');
+        document.getElementById('principal').appendChild(tabla);
+
+        //Creación de las filas
+        for (let index = 0; index < filas; index++) {
+            let elemento = document.createElement('tr');
+            tabla.appendChild(elemento);
+            //Creación de las columnas
+            for (let index2 = 0; index2 < columnas; index2++) {
+                let elementoColumna = document.createElement('td');
+                elemento.appendChild(elementoColumna);
+                elementoColumna.textContent = 'Celda ' + index + '-' + index2;
+                // Añadir clase a la celda cuando se clica en ella
+                elementoColumna.addEventListener('click', function() {
+                    elementoColumna.classList.toggle('resaltado');
+                    elementoColumna.innerHTML = (elementoColumna.classList.contains('resaltado')) ? 'Cambiado' : ('Celda ' + index + '-' + index2);
+                });
+
+                // Cuando el ratón entra en la celda se le aumenta el tamaño de la fuente y cuando sale de la celda, se ////le quita el tamaño de fuente
+                elementoColumna.addEventListener('mouseover', function() {
+                    elementoColumna.style.fontSize = '2em';
+                    console.log('Entra');
+                });
+                elementoColumna.addEventListener('mouseout', function() {
+                    elementoColumna.style.fontSize = '1em';
+                });
+
+                //Añadir manejador de evento doubleclick a cada celda
+                elementoColumna.addEventListener('dblclick', function(){
+                    elementoColumna.textContent = prompt('Dime el texto que quieres que tenga la celda');
+                })
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citas aleatorias</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Smooch&display=swap');
+
+        body {
+            margin: 30px 0;
+            font-family: 'Smooch', cursive;
+            font-size: 1.6em;
+        }
+
+        h1{
+            font-size: 1.25em;
+        }
+
+        blockquote {
+            margin-left: 0;
+        }
+
+        img {
+            width: 400px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Cita aleatoria</h1>
+    <blockquote>
+
+    </blockquote>
+    <article>
+        Autor: <cite></cite>
+        <br> <br>
+        <img src="" alt="Imagen del día">
+    </article>
+    <script>
+        // Arrays con frases, autores y imágenes
+        let frases = ["Vive como si fueras a morir mañana y aprende como si fueras a vivir para siempre.",
+            "La información y la libertad son indivisibles. La revolución informática es inimaginable sin la democracia y la verdadera democracia es inimaginable sin la libertad de información.",
+            "No temo a los ordenadores; lo que temo es quedarme sin ellos.",
+            "El ordenador nació para resolver problemas que antes no existían.",
+            "Lo peor que hacen los malos es obligarnos a dudar de los buenos"];
+
+        let autores = ["Mahatma Ghandi", "Kofi Annan", "Isaac Asimov", "Bill Gates", "Jacinto Benavente"];
+
+        let imagenes = ['https://img.asmedia.epimg.net/resizer/Jwe1B1neHdU0l9veM7ikOjbX5FE=/644x362/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/5THF4J7QL5N2BDQSD4TA3VTWFM.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Kofi_Annan_2012_%28cropped%29.jpg/220px-Kofi_Annan_2012_%28cropped%29.jpg',
+            'https://i0.wp.com/codigoespagueti.com/wp-content/uploads/2019/01/asimov-isaac.png?fit=1080%2C608&quality=80&ssl=1',
+            'https://static2.abc.es/media/salud/2022/05/17/bill-gates-covid-krRE--620x349@abc.jpg',
+            'https://estaticos.muyinteresante.es/media/cache/680x_thumb/uploads/images/article/55365e43066de9087b6a61b6/frases-jacinto-benavente.jpg'
+        ];
+
+        // Función para obtener un número aleatorio entre un rango
+        const aleatorio = parseInt(Math.random() * frases.length);
+
+        // Cambiar blockquote por el texto de la frase aleatoria
+        let frase = document.querySelector('blockquote');
+        frase.innerHTML = frases[aleatorio];
+
+        // Cambiar el autor de la frase
+        let autor = document.querySelector('cite');
+        autor.innerHTML = autores[aleatorio];
+
+        // Cambiar la imagen
+        let imagen = document.querySelector('img');
+        imagen.src = imagenes[aleatorio];
+    </script>
+</body>
+
+</html>

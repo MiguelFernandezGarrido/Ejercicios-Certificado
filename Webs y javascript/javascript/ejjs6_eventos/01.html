@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+    <style>
+        p{
+            transition: all 0.5s;
+        }
+        p:hover{
+            background-color: red;
+        }
+        .invisible{
+            /* Ocultar elemento */
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Hola perros</p>
+        <p>Hola perros</p>
+        <p>Hola perros</p>
+        <p>Hola perros</p>
+        <p>Hola perros</p>
+        <p>Hola perros</p>
+        <p>Hola perros</p>
+        <p>Hola perros</p>
+        <p>Hola perros</p>
+        <p>Hola perros</p>
+        <p>Hola perros</p>
+        <p>Hola perros</p>
+        <p>Hola perros</p>
+        <p>Hola perros</p>
+        <p>Hola perros</p>
+        <p>Hola perros</p>
+        <p>Hola perros</p>
+        <p>Hola perros</p>
+        <p>Hola perros</p>
+        <p>Hola perros</p>
+        <input type="button" value="Reset" id="asd">
+    </div>
+
+    <script>
+        //Ejercicio 1
+        window.addEventListener('load', function(){
+            alert('Se ha cargado todo');
+        })
+        window.addEventListener('beforeunload', function(){
+            alert('Se va a cerrar la página');
+        })
+        window.addEventListener('resize', function(){
+            alert('Se ha cambiado el tamaño de la ventana');
+        })
+        
+    </script>
+    <script>
+        // Ejercicio 7
+        let parrafos = document.querySelectorAll('p');
+        parrafos.forEach(function(elemento1){
+            elemento1.addEventListener('mouseleave', function(){
+            this.classList.add('invisible');
+        });});
+        let boton = document.getElementById('asd');
+        boton.addEventListener('click', function(){
+            parrafos.forEach(function(elemento){
+                elemento.classList.remove('invisible');
+            });
+        });
+    </script>
+</body>
+</html>

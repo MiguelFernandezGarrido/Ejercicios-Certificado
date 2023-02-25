@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio7</title>
+    <style>
+        table{
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        td, th, tr{
+            height: 200px;
+            width: 200px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let filas = parseInt(prompt("Dime el número de filas que quieres"));
+        let columnas = parseInt(prompt("Dime el número de columnas que quieres"));
+        let tabla = document.createElement('table');
+        for (let index = 0; index < filas; index++) {
+            let elemento = document.createElement('td');
+
+            tabla.appendChild(elemento);
+            console.log(elemento.textContent)
+            for(let index2 = 0; index2 < columnas; index2++){
+                let elementoColumna = document.createElement('tr');
+                elemento.appendChild(elementoColumna);
+            }
+            elemento.getElementsByTagName('tr')[0].textContent = prompt("Dime qué quieres que halla en la cabecera de la columna: " + index);
+        }
+        document.body.appendChild(tabla);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #asd{
+            background-color: red;
+            color: white;
+            position: relative;
+            top: 100;
+            left: 100;
+        }
+    </style>
+</head>
+<body>
+    <div id="asd">
+        askldhadkh
+    </div>
+    <script>
+        // Ejercicio 5
+        let coordenadas = document.getElementById("asd");
+        document.addEventListener('keypress', function(e){
+            if (e.key == "w") {
+                //Mover coordenadas hacia arriba
+                coordenadas.style.top = (coordenadas.style.top - 10) + 'px';
+            }
+            if (e.key == 's'){
+                //Mover coordenadas hacia abajo
+                coordenadas.style.top = (coordenadas.style.top + 10) + 'px';
+            }
+            if (e.key == 'a'){
+                //Mover coordenadas hacia la izquierda
+                coordenadas.style.left = (coordenadas.style.left - 10) + 'px';
+            }
+            if (e.key == 'd'){
+                //Mover coordenadas hacia la derecha
+                coordenadas.style.left = (coordenadas.style.left + 10) + 'px';
+            }
+        });
+    </script>
+</body>
+</html>

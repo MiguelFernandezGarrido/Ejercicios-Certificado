@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora</title>
+    <style>
+        body{
+            background-color: #f2f2f2;
+        }
+        input{
+            width: 100px;
+            height: 30px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        table{
+            width: 50%;
+            border-collapse: collapse;
+        }
+        tr{
+            
+            height: 30px;
+            width: 30px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        td{
+            height: 50px;
+            width: 50px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 5px;
+            background-color: rgb(105, 105, 105);
+            color: white;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        td:hover{
+            background-color: rgb(255, 255, 255);
+            color: black;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+    <section id="numeros">
+        <article id="input">
+            <input type="text" id="resultado" value="" placeholder="0">
+        </article>
+    </section>
+    <section id="tablaCalculadora">
+            <table>
+                <tr>
+                    <td id="7">7</td>
+                    <td id="8">8</td>
+                    <td id="9">9</td>
+                    <td id="division">/</td>
+                </tr>
+                <tr>
+                    <td id="4">4</td>
+                    <td id="5">5</td>
+                    <td id="6">6</td>
+                    <td id="multiplicacion">*</td>
+                </tr>
+                <tr>
+                    <td id="1">1</td>
+                    <td id="2">2</td>
+                    <td id="3">3</td>
+                    <td id="resta">-</td>
+                </tr>
+                <tr>
+                    <td id="0">0</td>
+                    <td id="punto">.</td>
+                    <td id="igual">=</td>
+                    <td id="suma">+</td>
+                </tr>
+                <tr>
+                    <td id="limpiar">Limpiar</td>
+                    <td id="borrar">X</td>
+                </tr>
+    </section>
+    <script>
+        let resultado = document.getElementById("resultado");
+        let numeros = document.getElementsByTagName("td");
+        numeros = Array.from(numeros);
+        numeros = numeros.filter(function(numero){
+            return numero.id != "igual" && numero.id != "limpiar" && numero.id != "borrar";
+        });
+        let igual = document.getElementById("igual");
+        let limpiar = document.getElementById("limpiar");
+        let borrar = document.getElementById("borrar");
+        numeros.forEach(element => {
+            element.addEventListener("click", function(){
+            resultado.value = resultado.value + element.textContent;
+            });
+        });
+        igual.addEventListener("click", function(){
+            try {
+                let funcion = Function('return ' + resultado.value);
+                resultado.value = funcion();
+            } catch (error) {
+                resultado.value = "Error";
+            }
+        });
+        limpiar.addEventListener("click", function(){
+            resultado.value = "";
+        });
+        borrar.addEventListener("click", function(){
+            resultado.value = resultado.value.substring(0, resultado.value.length - 1);
+        });
+
+    </script>
+</body>
+</html>

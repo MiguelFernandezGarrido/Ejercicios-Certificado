@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom create</title>
+</head>
+<body>
+    <h1>Ejemplo de creación de elementos en el Dom.</h1>
+    <p>Lista de la compra:</p>
+    <ul>
+        <li>Leche</li>
+        <li>Huevos</li>
+        <li>Pan</li>
+    </ul>
+    <script>
+        // Recuperar lista de la compra
+        let listaCompra = document.querySelector('ul');
+        listaCompra.appendChild(document.createElement('li'));
+        let elementoTexto = document.createTextNode('Café');
+        listaCompra.lastElementChild.appendChild(elementoTexto);
+        listaCompra.appendChild(document.createElement('li')).textContent = 'Cerveza';
+        // Acceder al elemento cuyo content sea 'pan'
+
+        // El primer párrafo que hay dentro del div ‘lipsum’
+        let primerParrafo = document.querySelector('div#lipsum p').textContent;
+        // let nodo = document.querySelector('li.');
+        // console.log(nodo);
+        // let elementofinal = document.createElement('li');
+        // elementofinal.textContent = 'Queso';
+        // listaCompra.insertBefore(elementofinal, nodo);
+    </script>
+</body>
+</html>
